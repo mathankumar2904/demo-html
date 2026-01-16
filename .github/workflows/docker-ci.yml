@@ -6,15 +6,11 @@ on:
       - main
 
 jobs:
-  build-and-run:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t static-html-app .
-
-      - name: Run Docker container (inside runner)
-        run: docker run -d -p 8095:80 static-html-app
+        run: docker build -t demo-html-image .

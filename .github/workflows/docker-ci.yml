@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,3 +15,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t static-html-app .
+
+      - name: Run Docker container (inside runner)
+        run: docker run -d -p 8095:80 static-html-app
